@@ -1,0 +1,433 @@
+/* ==== 基础样式 ==== */
+body {
+    background: #fff8e7 url("IMG_1745 2.jpg");
+    background-size: 120px;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* ==== 网格布局 ==== */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 列，每列 1fr */
+    grid-template-rows: auto auto;         /* 2 行 */
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+  }
+  
+  .grid-item {
+    background-color: #d1e2f9;
+    padding: 20px;
+    border-radius: 12px;
+    min-height: 200px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    border: 2px solid #a0beff;
+    transition: transform 0.2s;
+  }
+  .grid-item h2 {
+    margin-bottom: 16px;
+    border-bottom: 2px dashed #d7e6f5;
+    padding-bottom: 6px;
+    color: #3e76f9;
+  }
+  .grid-item:hover {
+    transform: translateY(-3px);
+  }
+  
+  /* ==== 倒计时板块 ==== */
+  #countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .countdown-item {
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px 10px;
+    text-align: center;
+    min-width: 70px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .countdown-item span {
+    font-size: 28px;
+    font-weight: bold;
+    display: block;
+    color: #fbcb3c;
+  }
+  .countdown-item small {
+    font-size: 14px;
+    color: #666;
+  }
+  .flip span {
+    animation: flip 0.4s ease-in-out;
+  }
+  @keyframes flip {
+    0% { transform: rotateX(90deg); opacity: 0; }
+    100% { transform: rotateX(0); opacity: 1; }
+  }
+  .birthday-msg {
+    text-align: center;
+  }
+  .birthday-msg img {
+    width: 150px;
+    margin-top: 15px;
+  }
+  
+  /* ==== 留言板样式 ==== */
+  .message-container {
+    max-width: 480px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  #nicknameInput {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+  }
+  #authorSelect {
+    margin-top: 10px;
+    padding: 6px;
+    border-radius: 6px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    background-color: white;
+  }
+  #messageInput {
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    resize: none;
+  }
+  #message-box button {
+    align-self: flex-start;
+    padding: 10px 20px;
+    background-color: #ffd208;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  #messages {
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  /* ==== 目标板块样式 ==== */
+  .goal-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  #goal-input, #goal-type {
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  #goal-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  .goal-item {
+    background: #2473bc;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 6px;
+    margin-bottom: 5px;
+  }
+  .goal-tag {
+    font-size: 12px;
+    background: #97b1e6;
+    color: rgb(251, 251, 251);
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-right: 6px;
+  }
+  #celebration {
+    font-size: 18px;
+    color: #000000;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+ /* ==== 日历整体容器 ==== */
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  /* ==== 星期标题（Sun - Sat） ==== */
+  #calendar .weekday {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #3f7ed0;
+    font-size: 22px;
+    background-color: #fff6d6;
+    border-radius: 12px;
+    box-shadow: 2px 2px 0 #ffe894;
+  }
+  
+  /* ==== 每日日期圆圈格子 ==== */
+  .calendar-day {
+    border: 2px solid #3f7ed0;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  
+  .calendar-day:hover {
+    background-color: #c1daf9;
+    transform: scale(1.05);
+  }
+  
+  /* 日期数字 */
+  .calendar-day span {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  /* 图标 */
+  .calendar-icon-only {
+    font-size: 22px;
+    margin-top: 6px;
+  }
+  
+  /* ==== 弹窗样式 ==== */
+  #calendar-modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    width: 300px;
+    z-index: 10000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  
+  /* ==== 提示浮窗 ==== */
+  .note-tooltip {
+    position: fixed; /* 改为 fixed，脱离父元素 */
+    background: #ffe341;
+    color: #000000;
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    white-space: nowrap;
+    z-index: 100000; /* 提升显示层级 */
+    pointer-events: none;
+  }
+  
+  /* ==== 标题区域样式 ==== */
+  .site-header {
+    position: relative;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .site-header h1 {
+    font-family: 'Bangers', system-ui;
+    font-size: 72px;
+    color: #ffe894;
+    text-shadow: 3px 3px #3f7ed0;
+    margin: 0;
+  }
+  
+  .header-sticker {
+    position: absolute;
+    right: 10px;
+    top: -10px;
+    width: 80px;
+  }
+
+
+  /* 外部统一容器 */
+ .outer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  /* 网格行 */
+  .grid-row {
+    display: grid;
+    gap: 24px;
+  }
+  
+  /* 第一行 3 列 */
+  .grid-top {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* 第二行 2 列 */
+  .grid-bottom {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  button {
+    background: #ffe37a;
+    color: #293241;
+    border: 3px solid #293241;
+    font-family: 'Bangers', system-ui;
+    padding: 12px 20px;
+    font-size: 18px;
+    border-radius: 20px;
+    box-shadow: 3px 3px 0 #293241;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s;
+  }
+  button:hover {
+    transform: translateY(-3px) scale(1.05) rotate(-1deg);
+    box-shadow: 6px 6px 0 #3d5a80;
+  }
+
+  .title-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+  
+  .title-wrapper h2 {
+    margin: 0;
+    padding-right: 30px; /* 给贴纸留出空间 */
+    font-size: 22px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .sticker-img {
+    position: absolute;
+    top: -10px;
+    right: -20px;
+    width: 45px;
+    transform: rotate(-15deg);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+
+  .calendar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 16px;
+  }
+  
+  .calendar-nav button {
+    background-color: #ffe37a;
+    border: 2px solid #3f7ed0;
+    border-radius: 10px;
+    padding: 4px 12px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Chewy', cursive;
+  }
+  
+  #calendar-title {
+    font-size: 20px;
+    color: #3f7ed0;
+    font-weight: bold;
+  }
+
+  /* 弹窗覆盖层 */
+.birthday-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  /* 弹窗主体 */
+  .birthday-popup {
+    background: #dfedf5;
+    padding: 30px 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  
+  /* 静态标题 */
+  .static-title {
+    font-family: 'Bangers', cursive;  /* 或换成你喜欢的黄蓝风字体 */
+    font-size: 64px;
+    color: #f6d662;  /* 亮黄色 */
+    /* 如果希望加入蓝色阴影，可去掉 text-shadow 即可 */
+    text-shadow: 3px 3px #3f7ed0; 
+    margin: 0 0 20px;
+  }
+  
+  /* 打字机效果区域 */
+  .typing-container {
+    margin-bottom: 20px;
+  }
+  
+  .typing-effect {
+    font-family: 'SimSun', '宋体', serif;  /* 使用宋体 */
+    font-size: 16px;
+    color: #000;  /* 正常黑色 */
+    white-space: pre-wrap;  /* 保持换行符的换行 */
+    line-height: 1.4;
+    margin: 0;
+  }
+  
+  /* 蛋糕图片样式 */
+  .cake-img {
+    width: 200px;
+    height: auto;
+    border-radius: 20px;  /* 边缘柔化 */
+    margin-top: 20px;
+  }

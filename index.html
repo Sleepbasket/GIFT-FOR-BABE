@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>心宝专属WEB</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+</head>
+<body>
+   
+  <header class="site-header">
+    <h1>Sunshine Bloom</h1>
+  </header>
+
+  <!-- 包裹整个内容的统一宽度容器 -->
+ <div class="outer-container">
+  
+    <!-- 第一行：3列 -->
+    <div class="grid-row grid-top">
+        <div class="grid-item" id="countdown-box">
+          <div class="title-wrapper">
+            <h2>生日倒计时</h2>
+            <img class="sticker-img" src="1.png" alt="贴纸">
+          </div>
+          <div id="countdown">正在计算中...</div>
+        </div>
+      
+        <div class="grid-item" id="song-box">
+          <div class="title-wrapper">
+            <h2>今日歌曲推荐</h2>
+            <img class="sticker-img" src="2.png" alt="贴纸">
+          </div>
+        </div>
+      
+        <div class="grid-item" id="goals-box">
+          <div class="title-wrapper">
+            <h2>每日 / 每月目标</h2>
+            <img class="sticker-img" src="3.png" alt="贴纸">
+          </div>
+          <div class="goal-container">
+            <select id="goal-type">
+              <option value="daily">每日</option>
+              <option value="monthly">每月</option>
+            </select>
+            <input type="text" id="goal-input" placeholder="请输入目标">
+            <button onclick="addGoal()">添加目标</button>
+            <ul id="goal-list"></ul>
+            <div id="celebration" style="display: none;"> 😉目标全部完成～宝贝老婆太棒啦！</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 第二行：2列 -->
+      <div class="grid-row grid-bottom">
+        <div class="grid-item" id="calendar-box">
+          <div class="title-wrapper">
+            <h2>日历</h2>
+            <img class="sticker-img" src="your-cartoon.png" alt="贴纸">
+          </div>
+          <div class="calendar-nav">
+            <button onclick="changeMonth(-1)">←</button>
+            <span id="calendar-title">2025年4月</span>
+            <button onclick="changeMonth(1)">→</button>
+          </div>
+          <div id="calendar"></div>
+        </div>
+      
+        <div class="grid-item" id="message-box">
+          <div class="title-wrapper">
+            <h2>留言树洞</h2>
+            <img class="sticker-img" src="4.png" alt="贴纸">
+          </div>
+          <div class="message-container">
+            <select id="authorSelect">
+              <option value="心宝">心宝</option>
+              <option value="小羊">小羊</option>
+            </select>
+            <input type="text" id="nicknameInput" placeholder="昵称">
+            <textarea id="messageInput" placeholder="写下你想说的话..."></textarea>
+            <button onclick="sendMessage()">发送</button>
+            <div id="messages"></div>
+          </div>
+        </div>
+      </div>
+ </div> <!-- 结束 outer-container -->
+
+  <!-- 日历弹窗放这里（grid-container外） -->
+  <div id="calendar-modal" style="display: none;">
+    <div class="modal-content">
+      <h4 id="modal-title">添加事项</h4>
+      <input type="text" id="calendar-note" placeholder="写点什么...">
+      <select id="calendar-icon">
+        <option value="">选择图标</option>
+        <option value="😊">😊</option>
+        <option value="😣">😣</option>
+        <option value="💼">💼</option>
+        <option value="📑">📑</option>
+        <option value="🎞️">🎞️</option>
+        <option value="🍚">🍚</option>
+        <option value="💪">💪</option>
+        <option value="🥕">🥕</option>
+      </select>
+      <div style="margin-top: 10px;">
+        <button onclick="saveNote()">保存</button>
+        <button onclick="deleteNote()" style="margin-left: 10px; background-color: #999;">删除</button>
+        <button onclick="closeModal()" style="margin-left: 10px; background-color: #ccc;">关闭</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>
